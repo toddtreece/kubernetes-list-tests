@@ -40,7 +40,6 @@ func fetchPage(req *http.Request, next string) (io.ReadCloser, error) {
 		query.Set("continue", next)
 		req.URL.RawQuery = query.Encode()
 	}
-	fmt.Printf("Requesting %s\n", req.URL.String())
 	res, err := transport.RoundTrip(req)
 	if err != nil {
 		return nil, err
